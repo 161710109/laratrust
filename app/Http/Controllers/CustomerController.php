@@ -56,7 +56,7 @@ class CustomerController extends Controller
      * @param  \App\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(customer $customer)
+    public function show($id)
     {
         $customer = customer::findOrFail($id);
         return view('customer.show',compact('customer'));
@@ -68,7 +68,7 @@ class CustomerController extends Controller
      * @param  \App\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(customer $customer)
+    public function edit($id)
     {
             $customer = customer::findOrFail($id);
         return view('customer.edit',compact('customer'));
@@ -81,18 +81,15 @@ class CustomerController extends Controller
      * @param  \App\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, customer $customer)
+    public function update(Request $request, $id)
     {
         $this->validate($request,[
             'nama' => 'required|',
             'alamat' => 'required|',
             'no_hp' => 'required'
         ]);
-        $customer= new customer;
-        $customer->nama = $request->nama;
-        $customer->alamat = $request->alamat;
-        $customer->no_hp = $request->no_hp;
-        $customer->save();
+        $customer = customer::find($id);
+        $customer->update($request->all());
         return redirect()->route('customer.index');    
     }
 
@@ -102,7 +99,7 @@ class CustomerController extends Controller
      * @param  \App\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(customer $customer)
+    public function destroy($id)
     {
         $customer = customer::findOrFail($id);
         $customer->delete();

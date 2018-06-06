@@ -14,13 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('mobil','MobilController');
-Route::resource('galeri','galeriController');
-Route::resource('customer','customerController');
-Route::resource('pesanan','pesananController');
 
 Route::get('cek',function(){
     return view('layouts.admin');
+});
+
+Route::get('user',function(){
+    return view('layouts.user');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],function(){
+    Route::resource('mobil','MobilController');
+    Route::resource('galeri','GaleriController');
+    Route::resource('customer','CustomerController');
+    Route::resource('pesanan','PesananController');
 });
 
 Auth::routes();

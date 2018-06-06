@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\pesanan;
+use App\mobil;
+use App\costumer;
+use App\session;
 use Illuminate\Http\Request;
 
 class PesananController extends Controller
@@ -14,7 +17,8 @@ class PesananController extends Controller
      */
     public function index()
     {
-        //
+        $pesanan = pesanan::all();
+        return view('pesanan.index',compact('pesanan'));
     }
 
     /**
@@ -24,7 +28,10 @@ class PesananController extends Controller
      */
     public function create()
     {
-        //
+        $pesanan = pesanan::all();
+        $mobil = mobil::all();
+        $costumer = costumer::all();
+        return view('pesanan.create',compact('pesanan','mobil','costumer'));
     }
 
     /**
@@ -35,7 +42,20 @@ class PesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+        'tanggal_boking' => 'required',
+        'id_mobil' => 'required',
+        'id_costumer' => 'required'   
+        ]);
+    $pesanan= new pesanan;
+    $pesanan->tanggal_boking = $request->tanggal_boking;
+    $pesanan->id_mobil = $request->id_mobil;
+    $pesanan->id_costumer = $request->id_costumer;
+    $pesanan->save();
+    session::flash("flash_notification",[
+        "level" => "success",
+        "message" => "success <b>$pesanan->tanggal_boking</b>"]);
+    return redirect()->route('pesanan.index');
     }
 
     /**
@@ -44,9 +64,10 @@ class PesananController extends Controller
      * @param  \App\pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function show(pesanan $pesanan)
+    public function show(id $id)
     {
-        //
+        $pesanan = pesanan::findOrFail($id);
+        return view('pesanan.show',compact('pesanan'));
     }
 
     /**
@@ -55,9 +76,10 @@ class PesananController extends Controller
      * @param  \App\pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(pesanan $pesanan)
+    public function edit(id $id)
     {
-        //
+        $pesanan = pesanan::findOrFail($id);
+        return view('pesanan.edit',compact('pesanan'));
     }
 
     /**
@@ -67,9 +89,17 @@ class PesananController extends Controller
      * @param  \App\pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, pesanan $pesanan)
+    public function update(Request $request,$id)
     {
-        //
+        $this->validate($request,[
+        'tanggal_boking' => 'required',
+        'id_mobil' => 'required',
+        'id_costumer' => 'required',   
+        ]);
+        
+        $pesanan = pesanan::find($id);
+        $pesanan->update($request->all());
+        return redirect()->route('pesanan.index');
     }
 
     /**
@@ -78,8 +108,10 @@ class PesananController extends Controller
      * @param  \App\pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(pesanan $pesanan)
+    public function destroy($id)
     {
-        //
+        $pesanan = pesanan::findOrFail($id);
+        $pesanan->delete();
+        return redirect()->route('pesanan.index');
     }
 }

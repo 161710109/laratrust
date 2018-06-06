@@ -1,43 +1,46 @@
 @extends('layouts.admin')
 @section('content')
-
-<div class="row">
-	<div class="container">
-		<div class="col-md-12">
-			<div class="panel panel-primary">
-			  <div class="panel-heading">Tambah Data Post 
-			  	<div class="panel-title pull-right"><a href="{{ url()->previous() }}">Kembali</a>
-			  	</div>
-			  </div>
-			  <div class="panel-body">
-			  	<form action="{{ route('galeri.store') }}" method="post" >
-			  		{{ csrf_field() }}
-			  		<div class="form-group {{ $errors->has('nama') ? ' has-error' : '' }}">
-			  			<label class="control-label">Nama Mobil</label>	
-			  			<input type="text" name="nama" class="form-control"  required>
-			  			@if ($errors->has('nama'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('nama') }}</strong>
-                            </span>
-                        @endif
-			  		</div>
-
-			  		<div class="form-group {{ $errors->has('foto') ? ' has-error' : '' }}">
-			  			<label class="control-label">Foto</label>	
-			  			<input type="text" name="foto" class="form-control"  required>
-			  			@if ($errors->has('foto'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('foto') }}</strong>
-                            </span>
-                        @endif
-			  		</div>
-                      <div class="form-group">
-			  			<button type="submit" class="btn btn-primary">Tambah</button>
-			  		</div>
-			  	</form>
-			  </div>
-			</div>	
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Upload Gambar dengan Laravel 5.2 &raquo; Jaranguda.com</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h3>Gambar</h3>
+            <hr>
+ 
+    <form action="{{ url('galeri') }}" method="POST" enctype="multipart/form-data">
+        {!! csrf_field() !!}
+ 
+                <div class="form-group">
+                    <label for="nama">Nama</label>
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Judul Gambar">
+                </div>
+ 
+                <div class="form-group">
+                    <label for="foto">Gambar</label>
+                    <input type="file" id="foto" name="foto">
+                </div>
+ 
+                <input class="btn btn-primary" type="submit" value="Upload">
+            </form>
+ 
+        @if(count($errors) > 0)
+            <div class="row">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+            </div>
+        @endif
+ 
+        </div>
+    </body>
+</html>
 @endsection

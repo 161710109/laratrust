@@ -12,16 +12,16 @@
                                 <i class="fas fa-tachometer-alt"></i>Momobilan</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="mobil">Mobil 1</a>
+                                    <a href="mobil">Mobil</a>
                                 </li>
                                 <li>
-                                    <a href="galeri">Galeri 2</a>
+                                    <a href="galeri">Galeri</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <a href="customer">Customer</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <a href="pesanan">Pesanan</a>
                                 </li>
                             </ul>
                         </li>
