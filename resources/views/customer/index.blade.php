@@ -28,6 +28,7 @@
 				    	<td>{{ $data->nama }}</td>
 				    	<td><p>{{ $data->alamat }}</p></td>
 				    	<td><p>{{ $data->no_hp }}</p></td>
+						<td>
 							<a class="btn btn-warning" href="{{ route('customer.edit',$data->id) }}">Edit</a>
 						</td>
 						<td>

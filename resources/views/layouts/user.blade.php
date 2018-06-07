@@ -16,13 +16,13 @@
 		</a>
 		<ul id="navigation">
 			<li class="selected">
-				<a href="index.html">home</a>
+				<a href="home">home</a>
 			</li>
 			<li>
-				<a href="about.html">about</a>
+				<a href="admin/mobil">Mobil</a>
 			</li>
 			<li>
-				<a href="gallery.html">gallery</a>
+				<a href="admin/galeri">gallery</a>
 			</li>
 			<li>
 				<a href="blog.html">blog</a>
@@ -34,32 +34,29 @@
 	</div>
 	<div id="body">
 		<div id="featured">
-			<img src="/assets/user/images/the-beacon.jpg" alt="">
-			<div>
-				<h2>the beacon to all mankind</h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="blog-single-post.html" class="more">read more</a>
-			</div>
+			<img src="/assets/user/images/sport.png" alt="">
+			
 		</div>
 		<ul>
 			<li>
-				<a href="gallery.html">
-					<img src="/assets/userimages/the-father.jpg" alt="">
-					<span>the father</span>
+					<img src="../assets/user/images/audi.jpg" style="max-height:150px;max-width:150px;margin-top:7px;"/>
+					<td>
+							<a href="admin/pesanan" class="btn btn-success">Booking Now!</a>
+					</td>
 				</a>
 			</li>
 			<li>
-				<a href="gallery.html">
-					<img src="/asstes/user/images/the-actor.jpg" alt="">
-					<span>the actor</span>
+					<img src="../assets/user/images/hoci.jpg" style="max-height:150px;max-width:150px;margin-top:7px;"/>
+					<td>
+							<a href="admin/pesanan" class="btn btn-success">Booking Now!</a>
+					</td>
 				</a>
 			</li>
 			<li>
-				<a href="gallery.html">
-					<img src="/assets/user/images/the-nerd.jpg" alt="">
-					<span>the nerd</span>
+					<img src="../assets/user/images/erti.jpg" style="max-height:150px;max-width:150px;margin-top:7px;"/>
+					<td>
+							<a href="admin/pesanan" class="btn btn-success">Booking Now!</a>
+					</td>
 				</a>
 			</li>
 		</ul>

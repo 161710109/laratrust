@@ -83,8 +83,12 @@
 			  		</div>
 
 			  		<div class="form-group {{ $errors->has('id_galeri') ? ' has-error' : '' }}">
-			  			<label class="control-label">Galeri</label>	
-			  			<textarea name="id_galeri" class="form-control" required></textarea>
+			  			<label class="control-label">id_galeri</label>	
+			  			<select name="id_galeri" class="form-control" required>
+						  @foreach($mobil as $data)
+			  				<option value="{{ $data->id_galeri }}">{{ $data->id_galeri }}</option>
+			  				@endforeach
+							  </select>
 			  			@if ($errors->has('id_galeri'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('id_galeri') }}</strong>

@@ -28,10 +28,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],function(){
-    Route::resource('mobil','MobilController');
-    Route::resource('galeri','GaleriController');
-    Route::resource('customer','CustomerController');
-    Route::resource('pesanan','PesananController');
+    
+Route::resource('mobil','MobilController');
+Route::resource('galeri','GaleriController');
+Route::resource('customer','CustomerController');
+Route::resource('pesanan','PesananController');
+
 });
 
 Auth::routes();

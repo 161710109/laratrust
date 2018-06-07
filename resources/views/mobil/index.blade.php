@@ -38,7 +38,7 @@
 				    	<td><p>{{ $data->warna }}</p></td>
               			<td><p>{{ $data->perseneling }}</p></td>
               			<td><p><a href="" class="thumbnail">
-                            <img src="img/{{ $data->galeri->foto, $data->nama }}" style="max-height:150px;max-width:150px;margin-top:7px;"</p></td>
+                            <img src="../img/{{ $data->galeri->foto, $data->nama }}" style="max-height:150px;max-width:150px;margin-top:7px;"</p></td>
 						<td>
 							<a class="btn btn-warning" href="{{ route('mobil.edit',$data->id) }}">Edit</a>
 						</td>

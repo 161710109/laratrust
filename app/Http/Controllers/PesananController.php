@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\pesanan;
 use App\mobil;
-use App\costumer;
-use App\session;
+use App\customer;
+use Session;
+
 use Illuminate\Http\Request;
 
 class PesananController extends Controller
@@ -30,8 +31,8 @@ class PesananController extends Controller
     {
         $pesanan = pesanan::all();
         $mobil = mobil::all();
-        $costumer = costumer::all();
-        return view('pesanan.create',compact('pesanan','mobil','costumer'));
+        $customer = customer::all();
+        return view('pesanan.create',compact('pesanan','mobil','customer'));
     }
 
     /**
@@ -45,12 +46,12 @@ class PesananController extends Controller
         $this->validate($request,[
         'tanggal_boking' => 'required',
         'id_mobil' => 'required',
-        'id_costumer' => 'required'   
+        'id_customer' => 'required'   
         ]);
     $pesanan= new pesanan;
     $pesanan->tanggal_boking = $request->tanggal_boking;
     $pesanan->id_mobil = $request->id_mobil;
-    $pesanan->id_costumer = $request->id_costumer;
+    $pesanan->id_customer = $request->id_customer;
     $pesanan->save();
     session::flash("flash_notification",[
         "level" => "success",
@@ -64,7 +65,7 @@ class PesananController extends Controller
      * @param  \App\pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function show(id $id)
+    public function show($id)
     {
         $pesanan = pesanan::findOrFail($id);
         return view('pesanan.show',compact('pesanan'));
@@ -76,7 +77,7 @@ class PesananController extends Controller
      * @param  \App\pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(id $id)
+    public function edit($id)
     {
         $pesanan = pesanan::findOrFail($id);
         return view('pesanan.edit',compact('pesanan'));
@@ -94,7 +95,7 @@ class PesananController extends Controller
         $this->validate($request,[
         'tanggal_boking' => 'required',
         'id_mobil' => 'required',
-        'id_costumer' => 'required',   
+        'id_customer' => 'required',   
         ]);
         
         $pesanan = pesanan::find($id);

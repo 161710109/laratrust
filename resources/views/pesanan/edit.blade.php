@@ -26,7 +26,7 @@
 
 			  		<div class="form-group {{ $errors->has('id_mobil') ? ' has-error' : '' }}">
 			  			<label class="control-label">id_mobil</label>	
-			  			<input type="text" value="{{ $pesanan->id_mobil }}" name="id_mobil" class="form-control"  required>
+			  			<input type="text" value="{{ $pesanan->mobil->nama }}" name="id_mobil" class="form-control"  required>
 			  			@if ($errors->has('id_mobil'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('id_mobil') }}</strong>
@@ -34,12 +34,12 @@
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('id_costumer') ? ' has-error' : '' }}">
-			  			<label class="control-label">id_costumer</label>	
-			  			<input type="text" value="{{ $pesanan->id_costumer }}" name="id_costumer" class="form-control"  required>
-			  			@if ($errors->has('id_costumer'))
+			  		<div class="form-group {{ $errors->has('id_customer') ? ' has-error' : '' }}">
+			  			<label class="control-label">id_customer</label>	
+			  			<input type="text" value="{{ $pesanan->customer->nama }}" name="id_customer" class="form-control"  required>
+			  			@if ($errors->has('id_customer'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('id_costumer') }}</strong>
+                                <strong>{{ $errors->first('id_customer') }}</strong>
                             </span>
                         @endif
 			  		</div>

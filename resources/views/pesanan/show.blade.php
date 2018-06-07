@@ -17,12 +17,12 @@
 
 			  		<div class="form-group">
 			  			<label class="control-label">id_mobil</label>
-						<input type="text" name="id_mobil" class="form-control" value="{{ $pesanan->id_mobil }}"  readonly>
+						<input type="text" name="id_mobil" class="form-control" value="{{ $pesanan->mobil->nama }}"  readonly>
 			  		</div>
 
 			  		<div class="form-group">
-			  			<label class="control-label">id_costumer</label>
-						<input type="text" name="id_costumer" class="form-control" value="{{ $pesanan->id_costumer }}"  readonly>
+			  			<label class="control-label">id_customer</label>
+						<input type="text" name="id_customer" class="form-control" value="{{ $pesanan->customer->nama }}"  readonly>
 			  		</div>
                       </div>
 			  	</div>

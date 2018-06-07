@@ -15,7 +15,7 @@
 			  		  <th>No</th>
 					  <th>Tanggal Boking</th>
 					  <th>id_mobil</th>
-					  <th>id_costumer</th>
+					  <th>id_customer</th>
 					  <th colspan="3">Action</th>
 			  		</tr>
 				  	</thead>
@@ -26,8 +26,9 @@
 				  	  <tr>
 				    	<td>{{ $no++ }}</td>
 				    	<td>{{ $data->tanggal_boking }}</td>
-				    	<td><p>{{ $data->id_mobil }}</p></td>
-				    	<td><p>{{ $data->id_costumer }}</p></td>
+				    	<td><p>{{ $data->mobil->nama }}</p></td>
+				    	<td><p>{{ $data->customer->nama }}</p></td>
+						<td>
 							<a class="btn btn-warning" href="{{ route('pesanan.edit',$data->id) }}">Edit</a>
 						</td>
 						<td>
