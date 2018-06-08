@@ -19,8 +19,8 @@
 					  <th>Harga</th>
 					  <th>Jenis</th>
 					  <th>Warna</th>
-            <th>Perseneling</th>
-            <th>Galeri</th>
+					  <th>Perseneling</th>
+					  <th>Galeri</th>
 					  <th colspan="3">Action</th>
 			  		</tr>
 				  	</thead>

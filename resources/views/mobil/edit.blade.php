@@ -85,7 +85,7 @@
 
 			  		<div class="form-group {{ $errors->has('id_galeri') ? ' has-error' : '' }}">
 			  			<label class="control-label">Galeri</label>	
-			  			<textarea name="id_galeri" class="form-control" required></textarea>
+			  			<input name="id_galeri" class="form-control" required>
 			  			@if ($errors->has('id_galeri'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('id_galeri') }}</strong>

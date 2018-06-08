@@ -24,8 +24,12 @@
 
 			  		<div class="form-group {{ $errors->has('foto') ? ' has-error' : '' }}">
 			  			<label class="control-label">foto</label>	
-			  			<input type="file" name="foto" class="form-control" value="{{ $galeri->foto }}"  required>
-			  			@if ($errors->has('foto'))
+			  			<input type="file" name="foto" class="form-control" value="{{ $galeri->foto }}"
+			  			@if(isset($galeri)&& $galeri->foto)
+						  <p>
+						  <br><img src="{{asset('img/'.$galeri->foto)}}"></br>
+						  </p>@endif
+						  @if ($errors->has('foto'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('foto') }}</strong>
                             </span>

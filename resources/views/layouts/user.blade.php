@@ -19,10 +19,10 @@
 				<a href="home">home</a>
 			</li>
 			<li>
-				<a href="admin/mobil">Mobil</a>
+				<a href="mobil">Mobil</a>
 			</li>
 			<li>
-				<a href="admin/galeri">gallery</a>
+				<a href="galeri">gallery</a>
 			</li>
 			<li>
 				<a href="blog.html">blog</a>

@@ -47,7 +47,12 @@
                       
 			  		<div class="form-group">
 			  			<label class="control-label">Galeri</label>
-						<input type="text" name="id_galeri" class="form-control" value="{{ $mobil->id_galeri }}"  readonly>
+						<input type="text" name="id_galeri" class="form-control" value="{{ $mobil->id_galeri }}" readonly>
+						  @if ($errors->has('foto'));
+                            <span class="help-block">
+                                <strong>{{ $errors->first('foto') }}</strong>
+                            </span>
+                        @endif
 			  		</div>
 			  		
 

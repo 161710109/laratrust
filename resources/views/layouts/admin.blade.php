@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Momobilan</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{ asset('assets/admin/css/font-face.css') }}" rel="stylesheet" media="all">
